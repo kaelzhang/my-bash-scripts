@@ -1,0 +1,28 @@
+{
+  "name": "my-bash-scripts",
+  "version": "1.0.0",
+  "description": "my-bash-scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec ./test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/my-bash-scripts.git"
+  },
+  "keywords": [
+    "my-bash-scripts"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "author": "kaelzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/my-bash-scripts/issues"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  }
+}
