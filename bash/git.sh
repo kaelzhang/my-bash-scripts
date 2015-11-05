@@ -32,5 +32,9 @@ glp(){
 }
 
 _git_get_current_branch(){
+  # old version of git does not support --short
   git symbolic-ref --short HEAD
+  # result=`git symbolic-ref HEAD`
+  # array=(${result//// })
+  # echo ${array[2]}
 }
