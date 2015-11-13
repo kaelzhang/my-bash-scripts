@@ -31,6 +31,11 @@ glp(){
   fi
 }
 
+rl(){
+  local version="$1"
+  git hf update && git hf release start "$version" && git hf release finish "$version"
+}
+
 _git_get_current_branch(){
   # old version of git does not support --short
   git symbolic-ref --short HEAD
