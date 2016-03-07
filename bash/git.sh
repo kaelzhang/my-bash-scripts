@@ -31,6 +31,11 @@ glp(){
   fi
 }
 
+gap(){
+  git commit -a -m 'a'
+  glp
+}
+
 rl(){
   local version="$1"
   git hf update && git hf release start "$version" && git hf release finish "$version"
