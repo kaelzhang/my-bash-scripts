@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source "$MY_BASH_SCRIPTS_DIR/bash/git.sh"
+source "$MY_BASH_SCRIPTS_DIR/bash/node.sh"
 
 sl(){
   target=${1-.}
