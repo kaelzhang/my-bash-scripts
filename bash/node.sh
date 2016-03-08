@@ -7,7 +7,7 @@ np(){
 }
 
 gnp(){
-  version=$(node -e "var version = require('package.json').version; console.log(version)")
+  version=$(node -e "var version = require('./package.json').version; console.log(version)")
   np &&
   git tag $version &&
   gp --follow-tags
