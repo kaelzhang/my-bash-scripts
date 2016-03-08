@@ -14,8 +14,8 @@ gl(){
 #
 gp(){
   local current_branch=`_git_get_current_branch`
-  echo "git push origin $current_branch $@"
-  git push origin $current_branch $@
+  echo "git push $@ origin $current_branch"
+  git push $@ origin $current_branch
 }
 
 glp(){
