@@ -12,13 +12,13 @@ gl(){
 
 # Enhanced `git push`
 #
-gp(){
-  local current_branch=`_git_get_current_branch`
-  echo "git push $@ origin $current_branch"
-  git push $@ origin $current_branch
-}
+# gp(){
+#   local current_branch=`_git_get_current_branch`
+#   echo "git push $@ origin $current_branch"
+#   git push $@ origin $current_branch
+# }
 
-glp(){
+gp(){
   local current_branch=`_git_get_current_branch`
   echo "git pull --rebase origin $current_branch"
   git pull --rebase origin $current_branch
@@ -26,8 +26,8 @@ glp(){
      return $?
   else
     echo
-    echo "git push origin $current_branch $@"
-    git push origin $current_branch $@
+    echo "git push $@ origin $current_branch"
+    git push origin $@ $current_branch
   fi
 }
 
