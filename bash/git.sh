@@ -33,7 +33,7 @@ gp(){
 
 gap(){
   git commit -a -m 'a'
-  glp
+  gp
 }
 
 rl(){
