@@ -20,6 +20,13 @@ gl(){
 
 gp(){
   local current_branch=`_git_get_current_branch`
+
+  if [[ $1 = "-f" ]]; then
+    echo "git pull origin $current_branch -f"
+    git push origin $current_branch -f
+    return $?
+  fi
+
   echo "git pull --rebase origin $current_branch"
   git pull --rebase origin $current_branch
   if [[ $? -ne 0 ]] ; then
