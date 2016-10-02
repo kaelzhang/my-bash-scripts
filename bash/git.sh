@@ -38,6 +38,12 @@ gp(){
   fi
 }
 
+gpp(){
+  local current_branch=`_git_get_current_branch`
+  echo "git push $@ origin $current_branch"
+  git push origin $@ $current_branch
+}
+
 gap(){
   git commit -a -m 'a'
   gp
