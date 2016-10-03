@@ -19,12 +19,6 @@ if [[ -f ~/path/to/my-bash-scripts/main.sh ]]; then
 fi
 ```
 
-## Usage
-
-```js
-var my_bash_scripts = require('my-bash-scripts');
-```
-
 ## License
 
 MIT
