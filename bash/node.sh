@@ -3,7 +3,8 @@
 echo "load my node scripts"
 
 np(){
-  npm publish
+  echo "npm publish $@"
+  npm publish $@
 }
 
 gnp(){
@@ -19,7 +20,7 @@ gnp(){
     return $?
   fi
 
-  np &&
+  np $@ &&
   git tag $version &&
   gp --tags
 }
