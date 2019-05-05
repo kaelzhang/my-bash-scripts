@@ -2,10 +2,10 @@
 
 echo "load my node scripts"
 
-# np(){
-#   echo "npm publish $@"
-#   npm publish $@
-# }
+np(){
+  echo "npm publish $@"
+  npm publish $@
+}
 
 gnp(){
   version=$(node -e "console.log(require('./package.json').version)" 2> /dev/null)
