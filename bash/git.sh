@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "load my git scripts"
-
 # Enhanced `git pull --rebase`
 #
 gl(){
