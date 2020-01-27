@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Use a bash function to activate conda env
+#  instead of auto initialization
+# ref: https://github.com/conda/conda/issues/8211
 conda-init() {
   # Ported from Anaconda3 2019.07 installer
   #####################################################
