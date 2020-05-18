@@ -1,15 +1,18 @@
 #!/bin/bash
 
+#
 # Enhanced `git pull --rebase`
 #
+
 gl(){
   local current_branch=`_git_get_current_branch`
   echo "git pull --rebase origin $current_branch"
   git pull --rebase origin $current_branch
 }
 
-# Enhanced `git push`
 #
+# Enhanced `git push`
+
 # gp(){
 #   local current_branch=`_git_get_current_branch`
 #   echo "git push $@ origin $current_branch"
@@ -36,21 +39,21 @@ gp(){
   fi
 }
 
-gpp(){
-  local current_branch=`_git_get_current_branch`
-  echo "git push $@ origin $current_branch"
-  git push origin $@ $current_branch
-}
+# gpp(){
+#   local current_branch=`_git_get_current_branch`
+#   echo "git push $@ origin $current_branch"
+#   git push origin $@ $current_branch
+# }
 
 gap(){
   git commit -a -m 'a'
   gp
 }
 
-rl(){
-  local version="$1"
-  git hf update && git hf release start "$version" && git hf release finish "$version"
-}
+# rl(){
+#   local version="$1"
+#   git hf update && git hf release start "$version" && git hf release finish "$version"
+# }
 
 _git_get_current_branch(){
   # old version of git does not support --short

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# Open the target with vscode with a workspace
+#
+
 a(){
   local add
 
@@ -16,6 +20,10 @@ a(){
     code "$file"
   fi
 }
+
+#
+# Add the target to the current vscode workspace
+#
 
 aa(){
   a -a $@
