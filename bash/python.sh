@@ -5,6 +5,13 @@
 
 gpp(){
   version=$(echo "from setup import __version__\nprint(__version__)" | python)
+
+  if [[ -z "$version" ]]: then
+    echo "fails to get version"
+    return 1
+
+    echo "version: $version\n"
+
   private=$(echo "import setup\nprint('private' in dir(setup))" | python)
 
   if [[ $private = "True" ]]; then
