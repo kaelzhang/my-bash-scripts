@@ -22,3 +22,8 @@ conda-init() {
   fi
   # <<< conda init <<<
 }
+
+ca() {
+  command -v conda &> /dev/null || conda-init
+  conda activate $1
+}
