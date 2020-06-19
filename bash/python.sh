@@ -6,9 +6,10 @@
 gpp(){
   version=$(echo "from setup import __version__\nprint(__version__)" | python)
 
-  if [[ ! -n "$version" ]]: then
+  if [[ ! -n "$version" ]]; then
     echo "fails to get version"
     return 1
+  fi
 
     echo "version: $version\n"
 
