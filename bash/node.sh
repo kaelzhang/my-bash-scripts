@@ -41,6 +41,7 @@ pick(){
   fi
 
   name=$1
+  shift
 
   if [[ ! -n "$name" ]]; then
     echo "please specify a name"
@@ -50,7 +51,7 @@ pick(){
   cd "$HOME/.npm-pick"
   echo "{\"name\": \"$name\", \"version\": \"0.0.0\", \"description\": \"\", \"main\": \"index.js\", \"scripts\": {}, \"license\": \"MIT\"}" > package.json
 
-  npm publish
+  npm publish $@
   cd -
 }
 
