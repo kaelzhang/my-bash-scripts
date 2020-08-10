@@ -4,23 +4,22 @@
 #  instead of auto initialization
 # ref: https://github.com/conda/conda/issues/8211
 conda-init() {
-  # Ported from Anaconda3 2019.07 installer
+  # Ported from Anaconda3 2020.08 installer
   #####################################################
 
-  # >>> conda init >>>
+  # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
-  local __conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+  local __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
+    eval "$__conda_setup"
   else
-    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
-      . "/anaconda3/etc/profile.d/conda.sh"
-      CONDA_CHANGEPS1=false conda activate base
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+      . "/opt/anaconda3/etc/profile.d/conda.sh"
     else
-      \export PATH="/anaconda3/bin:$PATH"
+      export PATH="/opt/anaconda3/bin:$PATH"
     fi
   fi
-  # <<< conda init <<<
+  # <<< conda initialize <<<
 }
 
 ca() {
