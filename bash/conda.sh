@@ -26,3 +26,6 @@ ca() {
   command -v conda &> /dev/null || conda-init
   conda activate $1
 }
+
+# Initialize conda automatically
+conda-init
