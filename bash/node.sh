@@ -2,7 +2,7 @@
 
 #
 # Npm publish
-#
+# -----------------------------------------------------------
 
 np(){
   echo "npm publish $@"
@@ -10,8 +10,8 @@ np(){
 }
 
 #
-# Git tag, push and npm publish
-#
+# Git tag, push --tags and npm publish
+# -----------------------------------------------------------
 
 gnp(){
   version=$(node -e "console.log(require('./package.json').version)" 2> /dev/null)
@@ -33,7 +33,7 @@ gnp(){
 
 #
 # Pick a npm name
-#
+# -----------------------------------------------------------
 
 pick(){
   if [[ ! -d "$HOME/.npm-pick" ]]; then
@@ -58,7 +58,7 @@ pick(){
 
 #
 # Remove all node_modules directory recursively
-#
+# -----------------------------------------------------------
 
 rm-node-modules(){
   find . -name "node_modules" -type d -prune -exec rm -rf '{}' +

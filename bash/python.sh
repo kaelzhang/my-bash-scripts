@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #
-# Git tag, push
+# Git tag, git push --tags, and publish to PyPI
+# -----------------------------------------------------------
 
 gpp(){
   version=$(echo "from setup import __version__\nprint(__version__)" | python)

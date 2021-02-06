@@ -2,7 +2,7 @@
 
 #
 # Enhanced `git pull --rebase`
-#
+# -----------------------------------------------------------
 
 gl(){
   local current_branch=`_git_get_current_branch`
@@ -12,12 +12,7 @@ gl(){
 
 #
 # Enhanced `git push`
-
-# gp(){
-#   local current_branch=`_git_get_current_branch`
-#   echo "git push $@ origin $current_branch"
-#   git push $@ origin $current_branch
-# }
+# -----------------------------------------------------------
 
 gp(){
   local current_branch=`_git_get_current_branch`
@@ -39,21 +34,15 @@ gp(){
   fi
 }
 
-# gpp(){
-#   local current_branch=`_git_get_current_branch`
-#   echo "git push $@ origin $current_branch"
-#   git push origin $@ $current_branch
-# }
+#
+# Just submit a WIP commit and publish
+# -----------------------------------------------------------
 
 gap(){
-  git commit -a -m 'a'
+  git commit -a -m 'WIP'
   gp
 }
 
-# rl(){
-#   local version="$1"
-#   git hf update && git hf release start "$version" && git hf release finish "$version"
-# }
 
 _git_get_current_branch(){
   # old version of git does not support --short

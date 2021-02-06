@@ -22,6 +22,10 @@ conda-init() {
   # <<< conda initialize <<<
 }
 
+#
+# Conda initialization and activate env
+# -----------------------------------------------------------
+
 ca() {
   command -v conda &> /dev/null || conda-init
   conda activate $1

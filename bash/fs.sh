@@ -1,6 +1,9 @@
 #!/bin/bash
 
+#
 # mkdir -p and cd
+# -----------------------------------------------------------
+
 mm(){
   local filename=$1
   if [[ -e "$filename" ]]; then
