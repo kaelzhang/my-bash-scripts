@@ -1,6 +1,6 @@
 #!/bin/bash
 
-__my_bash_scripts=(git node vscode conda python)
+__my_bash_scripts=(git node vscode conda python k8s)
 
 for sub in $__my_bash_scripts
 do
