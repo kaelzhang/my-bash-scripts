@@ -5,6 +5,9 @@
 # -----------------------------------------------------------
 
 gpp(){
+  local version
+  local private
+
   if [[ -f "setup.py" ]]; then
     version=$(echo "from setup import __version__\nprint(__version__)" | python)
     private=$(echo "import setup\nprint('private' in dir(setup))" | python)
