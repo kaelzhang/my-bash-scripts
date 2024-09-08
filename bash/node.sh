@@ -14,8 +14,8 @@ np(){
 # -----------------------------------------------------------
 
 gnp(){
-  version=$(node -e "console.log(require('./package.json').version)" 2> /dev/null)
-  private=$(node -e "console.log(require('./package.json').private)" 2> /dev/null)
+  local version=$(node -e "console.log(require('./package.json').version)" 2> /dev/null)
+  local private=$(node -e "console.log(require('./package.json').private)" 2> /dev/null)
 
   if [[ $private = "true" ]]; then
     echo "Project marked as > PRIVATE <, skip npm publishing"
@@ -40,7 +40,7 @@ pick(){
     mkdir "$HOME/.npm-pick"
   fi
 
-  name=$1
+  local name=$1
 
   if [[ ! -n "$name" ]]; then
     echo "please specify a name"
