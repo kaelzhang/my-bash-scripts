@@ -4,6 +4,8 @@
 # Open the target with vscode with a workspace
 # -----------------------------------------------------------
 
+USE_CURSOR=1
+
 a(){
   local add
 
@@ -14,10 +16,18 @@ a(){
 
   local file=${1:-.}
 
-  if [[ $add = "1" ]]; then
-    code -a "$file"
+  if [[ -n "$USE_CURSOR" ]]; then
+    if [[ $add = "1" ]]; then
+      cursor -a "$file"
+    else
+      cursor "$file"
+    fi
   else
-    code "$file"
+    if [[ $add = "1" ]]; then
+      code -a "$file"
+    else
+      code "$file"
+    fi
   fi
 }
 
