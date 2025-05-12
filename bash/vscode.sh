@@ -4,6 +4,8 @@
 # Open the target with vscode with a workspace
 # -----------------------------------------------------------
 
+# Uncomment the following line to use cursor instead of vscode
+# -----------------------------------------------------------
 USE_CURSOR=1
 
 a(){
