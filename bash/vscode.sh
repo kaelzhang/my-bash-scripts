@@ -9,11 +9,23 @@
 
 USE_CURSOR=1
 
+# Usage
+# - `a` open current directory
+# - `a .` open the current directory
+# - `a dir` open the directory `dir`
+# - `a -n` open the current directory in a new window
+# - `a -n dir` open the directory `dir` in a new window
 a(){
   local add
+  local new_window
 
   if [[ "$1" = "-a" ]]; then
     add=1
+    shift
+  fi
+
+  if [[ "$1" = "-n" ]]; then
+    new_window=1
     shift
   fi
 
@@ -21,15 +33,15 @@ a(){
 
   if [[ -n "$USE_CURSOR" ]]; then
     if [[ $add = "1" ]]; then
-      cursor -a "$file"
+      cursor ${new_window:+-n} -a "$file"
     else
-      cursor "$file"
+      cursor ${new_window:+-n} "$file"
     fi
   else
     if [[ $add = "1" ]]; then
-      code -a "$file"
+      code ${new_window:+-n} -a "$file"
     else
-      code "$file"
+      code ${new_window:+-n} "$file"
     fi
   fi
 }
