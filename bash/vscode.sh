@@ -1,37 +1,44 @@
 #!/bin/bash
 
 #
-# Open the target with vscode with a workspace
+# Open the target with vscode
 # -----------------------------------------------------------
-
-# Uncomment the following line to use cursor instead of vscode
-# -----------------------------------------------------------
-
-USE_CURSOR=1
-
+#
 # Usage
-# - `a` open current directory
-# - `a .` open the current directory
-# - `a dir` open the directory `dir`
-# - `a -n` open the current directory in a new window
-# - `a -n dir` open the directory `dir` in a new window
-a(){
+# - `v` open current directory
+# - `v .` open the current directory
+# - `v dir` open the directory `dir`
+# - `v -n` open the current directory in a new window
+# - `v -n dir` open the directory `dir` in a new window
+# - `v -a dir` add the directory `dir` to the current workspace
+v(){
   local add
   local new_window
+  local cursor
 
-  if [[ "$1" = "-a" ]]; then
-    add=1
-    shift
-  fi
-
-  if [[ "$1" = "-n" ]]; then
-    new_window=1
-    shift
-  fi
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -a)
+        add=1
+        shift
+        ;;
+      -n)
+        new_window=1
+        shift
+        ;;
+      --cursor)
+        cursor=1
+        shift
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
 
   local file=${1:-.}
 
-  if [[ -n "$USE_CURSOR" ]]; then
+  if [[ $cursor = "1" ]]; then
     if [[ $add = "1" ]]; then
       cursor ${new_window:+-n} -a "$file"
     else
@@ -46,10 +53,22 @@ a(){
   fi
 }
 
+c(){
+  v --cursor $@
+}
+
 #
 # Add the target to the current vscode workspace
 # -----------------------------------------------------------
 
-aa(){
-  a -a $@
+vv(){
+  v -a $@
+}
+
+#
+# Add the target to the current cursor workspace
+# -----------------------------------------------------------
+
+cc(){
+  v --cursor -a $@
 }
